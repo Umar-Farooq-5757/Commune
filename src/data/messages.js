@@ -15,4 +15,8 @@ export default [
     message: "this is message from contacttwo",
     from: "contacttwo",
   },
+  {
+    message: "this is message from contacttwo kg  fgklkdg gkldkg flkgdf gkldfglkdf g",
+    from: "contacttwo",
+  },
 ];
