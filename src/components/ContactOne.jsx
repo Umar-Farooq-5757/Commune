@@ -9,11 +9,41 @@ import {
   PaperAirplaneIcon,
 } from "@heroicons/react/24/outline";
 import { format } from "date-fns";
+import * as Tone from "tone";
 
 const ContactOne = ({ messages, setMessages }) => {
   const [messageFromContactOne, setMessageFromContactOne] = useState("");
   const messagesRef = useRef(null);
   const myDate = new Date();
+
+ // For notification sound
+  const [synth, setSynth] = useState(null);
+  const [isAudioReady, setIsAudioReady] = useState(false);
+
+  // Initialize Tone.js synth once
+  useEffect(() => {
+    const initializeAudio = async () => {
+      const newSynth = new Tone.PolySynth(Tone.Synth, {
+        oscillator: { type: "triangle" },
+      }).toDestination();
+      setSynth(newSynth);
+      setIsAudioReady(true);
+    };
+    initializeAudio();
+    return () => {
+      if (synth) synth.dispose();
+    };
+  }, []);
+  // Function to play the notification sound
+  const playNotificationSound = async () => {
+    if (Tone.context.state !== "running") {
+      await Tone.start();
+    }
+    if (synth && isAudioReady) {
+      synth.triggerAttackRelease("C5", "8n");
+    }
+  };
+
 
   const handleSend = () => {
     if (messageFromContactOne.trim()) {
@@ -21,6 +51,7 @@ const ContactOne = ({ messages, setMessages }) => {
         ...messages,
         { message: messageFromContactOne.trim(), from: "contactone" },
       ]);
+      playNotificationSound()
       setMessageFromContactOne("");
     }
   };
