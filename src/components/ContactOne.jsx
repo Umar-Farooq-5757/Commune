@@ -69,13 +69,13 @@ const ContactOne = ({ messages, setMessages }) => {
   }, [messages]);
 
   return (
-    <section className="w-[400px] overflow-hidden relative rounded-3xl h-[750px] border-4 outline-4 border-gray-500 outline-[#0022ff]">
+    <section className="w-[360px] lg:w-[400px] overflow-hidden relative rounded-3xl h-[750px] border-4 outline-4 border-gray-500 outline-[#0022ff]">
       <NotchArea />
       {/* <div className="chatting bg-[#fcefe2] h-full"> */}
       <ContactInfo contactName={"Contact One"} />
       <div
         ref={messagesRef}
-        className="messages absolute overflow-y-auto px-2 pb-12 top-[75px] bottom-0 flex flex-col h-full max-h-[630px]"
+        className="messages text-sm absolute overflow-y-auto px-2 pb-12 top-[75px] bottom-0 flex flex-col h-full max-h-[630px]"
       >
         <div className="date bg-white w-fit mx-auto font-semibold rounded-lg shadow-xl text-xs py-1 px-2 my-1">
           {format(myDate, "MMMM d, yyyy")}

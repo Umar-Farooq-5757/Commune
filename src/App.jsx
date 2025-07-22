@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Header isDark={isDark} setIsDark={setIsDark} />
-      <main className="mt-1 pl-4 flex justify-around">
+      <main className="py-4 flex md:flex-row flex-col items-center gap-5 md:gap-0 md:justify-around">
         <ContactOne messages={messages} setMessages={setMessages} />
         <ContactTwo messages={messages} setMessages={setMessages} />
       </main>
