@@ -69,7 +69,7 @@ const ContactOne = ({ messages, setMessages }) => {
   }, [messages]);
 
   return (
-    <section className="w-[360px] lg:w-[400px] overflow-hidden relative rounded-3xl h-[750px] border-4 outline-4 border-gray-500 outline-[#0022ff]">
+    <section className="w-[340px] sm:w-[365px] lg:w-[400px] overflow-hidden relative rounded-3xl h-[750px] border-4 outline-4 border-gray-500 outline-[#0022ff]">
       <NotchArea />
       {/* <div className="chatting bg-[#fcefe2] h-full"> */}
       <ContactInfo contactName={"Contact One"} />
@@ -84,14 +84,14 @@ const ContactOne = ({ messages, setMessages }) => {
           return message.from == "contactone" ? (
             <p
               key={i}
-              className="text-white contact-one rounded-lg self-end py-2 px-2 leading-5 my-1 bg-[#ff3e00] w-[66%]"
+              className="text-white contact-one rounded-lg self-end py-2 px-2 leading-5 my-1 bg-[#ff3e00] w-[75%]"
             >
               {message.message}
             </p>
           ) : (
             <p
               key={i}
-              className="text-black contact-two rounded-lg py-2 px-2 leading-5 my-1 bg-white w-[66%]"
+              className="text-black contact-two rounded-lg py-2 px-2 leading-5 my-1 bg-white w-[75%]"
             >
               {message.message}
             </p>
