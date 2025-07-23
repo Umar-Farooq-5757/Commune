@@ -9,8 +9,8 @@ header {
   background-size: 8px 8px;
   background-image: repeating-linear-gradient(
     45deg,
-    rgba(255, 62, 0, 0.5) 0,
-    rgba(255, 62, 0, 0.5) 0.8px,
+    rgba(255, 62, 0, 0.4) 0,
+    rgba(255, 62, 0, 0.4) 0.8px,
     #e5e5f7 0,
     #e5e5f7 50%
   );

@@ -10,13 +10,14 @@ import {
 } from "@heroicons/react/24/outline";
 import { format } from "date-fns";
 import * as Tone from "tone";
+import getTime from "../hooks/useTime.js";
 
 const ContactOne = ({ messages, setMessages }) => {
   const [messageFromContactOne, setMessageFromContactOne] = useState("");
   const messagesRef = useRef(null);
   const myDate = new Date();
 
- // For notification sound
+  // For notification sound
   const [synth, setSynth] = useState(null);
   const [isAudioReady, setIsAudioReady] = useState(false);
 
@@ -44,14 +45,13 @@ const ContactOne = ({ messages, setMessages }) => {
     }
   };
 
-
-  const handleSend = () => {
+  const handleSend = async () => {
     if (messageFromContactOne.trim()) {
       setMessages([
         ...messages,
         { message: messageFromContactOne.trim(), from: "contactone" },
       ]);
-      playNotificationSound()
+      playNotificationSound();
       setMessageFromContactOne("");
     }
   };
@@ -84,9 +84,13 @@ const ContactOne = ({ messages, setMessages }) => {
           return message.from == "contactone" ? (
             <p
               key={i}
-              className="text-white contact-one rounded-lg self-end py-2 px-2 leading-5 my-1 bg-[#ff3e00] w-[75%]"
+              className="text-white relative contact-one rounded-lg self-end py-2 px-2 leading-5 my-1 bg-[#ff3e00] w-[75%]"
             >
               {message.message}
+              {/* <span className="absolute font-semibold bottom-0 text-xs right-2">
+                {hours}:{minutes}{" "}
+                <span className="text-[10px]">{amOrPm}</span>
+              </span> */}
             </p>
           ) : (
             <p
