@@ -12,7 +12,7 @@ import { format } from "date-fns";
 import * as Tone from "tone";
 import getTime from "../hooks/useTime.js";
 
-const ContactOne = ({ messages, setMessages }) => {
+const ContactOne = ({ messages, setMessages, isSoundEnabled }) => {
   const [messageFromContactOne, setMessageFromContactOne] = useState("");
   const messagesRef = useRef(null);
   const myDate = new Date();
@@ -51,7 +51,9 @@ const ContactOne = ({ messages, setMessages }) => {
         ...messages,
         { message: messageFromContactOne.trim(), from: "contactone" },
       ]);
-      playNotificationSound();
+      if (isSoundEnabled) {
+        playNotificationSound();
+      }
       setMessageFromContactOne("");
     }
   };
@@ -75,7 +77,7 @@ const ContactOne = ({ messages, setMessages }) => {
       <ContactInfo contactName={"Contact One"} />
       <div
         ref={messagesRef}
-        className="messages text-sm absolute overflow-y-auto px-2 pb-12 top-[71px] bottom-0 flex flex-col h-full max-h-[637px]"
+        className="messages w-full text-sm absolute overflow-y-auto px-2 pb-12 top-[71px] bottom-0 flex flex-col h-full max-h-[637px]"
       >
         <div className="date bg-white w-fit mx-auto font-semibold rounded-lg shadow-xl text-xs py-1 px-2 my-1">
           {format(myDate, "MMMM d, yyyy")}

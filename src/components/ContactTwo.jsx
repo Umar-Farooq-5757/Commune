@@ -11,12 +11,12 @@ import {
 import { format } from "date-fns";
 import * as Tone from "tone";
 
-const ContactTwo = ({ messages, setMessages }) => {
+const ContactTwo = ({ messages, setMessages, isSoundEnabled }) => {
   const [messageFromContactTwo, setMessageFromContactTwo] = useState("");
   const messagesRef = useRef(null);
   const myDate = new Date();
 
- // For notification sound
+  // For notification sound
   const [synth, setSynth] = useState(null);
   const [isAudioReady, setIsAudioReady] = useState(false);
 
@@ -50,7 +50,9 @@ const ContactTwo = ({ messages, setMessages }) => {
         ...messages,
         { message: messageFromContactTwo.trim(), from: "contacttwo" },
       ]);
-      playNotificationSound()
+      if (isSoundEnabled) {
+        playNotificationSound();
+      }
       setMessageFromContactTwo("");
     }
   };
@@ -74,7 +76,7 @@ const ContactTwo = ({ messages, setMessages }) => {
       <ContactInfo contactName={"Contact Two"} />
       <div
         ref={messagesRef}
-        className="messages text-sm absolute overflow-y-auto px-2 pb-12 top-[71px] bottom-0 flex flex-col h-full max-h-[637px]"
+        className="messages w-full text-sm absolute overflow-y-auto px-2 pb-12 top-[71px] bottom-0 flex flex-col h-full max-h-[637px]"
       >
         <div className="date bg-white w-fit mx-auto font-semibold rounded-lg shadow-xl text-xs py-1 px-2 my-1">
           {format(myDate, "MMMM d, yyyy")}
