@@ -7,9 +7,9 @@ import {
   EllipsisVerticalIcon,
 } from "@heroicons/react/24/outline";
 
-const ContactInfo = ({ contactName, contactImageSrc }) => {
+const ContactInfo = ({ contactName, contactImageSrc,isDark }) => {
   return (
-    <div className="bg-white flex items-center justify-between shadow-xs shadow-gray-700 px-2 py-1">
+    <div className={`${isDark?'bg-[#1c1f26] text-white':'bg-white text-black'} flex items-center justify-between shadow-xs shadow-gray-700 px-2 py-1`}>
       <div className="flex items-center justify-center gap-1">
         <ArrowLeftIcon className="w-5 h-5" />
         <div className="flex items-center select-none px-1 py-1 pr-2 hover:bg-slate-200 justify-center gap-2">

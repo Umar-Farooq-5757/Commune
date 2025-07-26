@@ -11,7 +11,7 @@ import {
 import { format } from "date-fns";
 import * as Tone from "tone";
 
-const ContactTwo = ({ messages, setMessages, isSoundEnabled }) => {
+const ContactTwo = ({ messages, setMessages, isSoundEnabled,isDark }) => {
   const [messageFromContactTwo, setMessageFromContactTwo] = useState("");
   const messagesRef = useRef(null);
   const myDate = new Date();
@@ -70,10 +70,10 @@ const ContactTwo = ({ messages, setMessages, isSoundEnabled }) => {
   }, [messages]);
 
   return (
-    <section className="w-[340px] sm:w-[365px] lg:w-[400px] overflow-hidden relative rounded-3xl h-[750px] border-4 outline-4 border-gray-500 outline-[#0022ff]">
-      <NotchArea />
+    <section className="w-[340px] bg-white sm:w-[365px] lg:w-[400px] overflow-hidden relative rounded-3xl h-[750px] border-4 outline-4 border-gray-500 outline-[#0022ff]">
+      <NotchArea  />
       {/* <div className="chatting bg-[#fcefe2] h-full"> */}
-      <ContactInfo contactName={"Contact Two"} />
+      <ContactInfo isDark={isDark} contactName={"Contact Two"} />
       <div
         ref={messagesRef}
         className="messages w-full text-sm absolute overflow-y-auto px-2 pb-12 top-[71px] bottom-0 flex flex-col h-full max-h-[637px]"
@@ -119,7 +119,7 @@ const ContactTwo = ({ messages, setMessages, isSoundEnabled }) => {
         </button>
       </div>
       <div className="absolute bottom-0 left-0 right-0">
-        <BottomButtons />
+        <BottomButtons isDark={isDark}/>
       </div>
     </section>
   );

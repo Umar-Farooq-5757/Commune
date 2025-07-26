@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import messagesData from "./data/messages.js";
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
   const [messages, setMessages] = useState(messagesData);
   const [isSoundEnabled, setIsSoundEnabled] = useState(false);
   return (
@@ -18,16 +18,22 @@ function App() {
         isDark={isDark}
         setIsDark={setIsDark}
       />
-      <main className="py-4 flex md:flex-row flex-col items-center gap-5 md:gap-0 md:justify-around">
+      <main
+        className={`py-4 transition-all ${
+          isDark ? "bg-[#23272f] yes" : "no"
+        } flex pt-8 md:flex-row flex-col items-center gap-5 md:gap-0 md:justify-around`}
+      >
         <ContactOne
           isSoundEnabled={isSoundEnabled}
           messages={messages}
           setMessages={setMessages}
+          isDark={isDark}
         />
         <ContactTwo
           isSoundEnabled={isSoundEnabled}
           messages={messages}
           setMessages={setMessages}
+          isDark={isDark}
         />
       </main>
       {/* <Footer/> */}

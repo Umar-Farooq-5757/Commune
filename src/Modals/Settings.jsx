@@ -19,15 +19,15 @@ const Settings = ({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="absolute border border-gray-300 right-20 top-12 bg-white text-[#ff3e00] shadow-2xl text-sm font-semibold p-2 h-48 w-64 rounded-xl"
+        className={`absolute border border-gray-300 md:right-20 top-12 sm:right-16 right-6 ${isDark?'bg-[#23272f]':'bg-white'} text-[#ff3e00] shadow-2xl text-sm font-semibold p-1 md:p-2 h-48 w-64 rounded-md`}
       >
         <div className="theme my-2 transition-all hover:bg-black/10 select-none rounded-lg px-3 py-1 flex items-center justify-between">
           <span>Theme</span>
-          <button className="text-black cursor-pointer">
+          <button className={`cursor-pointer ${isDark?'text-white':'text-black'}`} onClick={()=>setIsDark(!isDark)}>
             {isDark ? (
-              <SunIcon className="size-7" title="light theme" />
+              <SunIcon className="size-6" title="light theme" />
             ) : (
-              <MoonIcon className="size-7" title="dark theme" />
+              <MoonIcon className="size-6" title="dark theme" />
             )}
           </button>
         </div>
