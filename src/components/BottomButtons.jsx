@@ -4,7 +4,7 @@ import React from "react";
 const BottomButtons = ({isDark}) => {
   return (
     <div className={`${isDark?'bg-[#1c1f26]':'bg-white'} flex items-center justify-around py-1`}>
-      <button className={` hover:bg-gray-200 rounded-2xl transition-all px-5 py-1`}>
+      <button className={` ${isDark?'hover:bg-[#292f3a]':'hover:bg-slate-200'} rounded-2xl transition-all px-5 py-1`}>
         <svg
           width="13"
           height="13"
@@ -22,7 +22,7 @@ const BottomButtons = ({isDark}) => {
           />
         </svg>
       </button>
-      <button className={`hover:bg-gray-200 rounded-2xl transition-all px-5 py-1 `}>
+      <button className={`${isDark?'hover:bg-[#292f3a]':'hover:bg-slate-200'} rounded-2xl transition-all px-5 py-1 `}>
         <svg
           width="15"
           height="15"
@@ -39,7 +39,7 @@ const BottomButtons = ({isDark}) => {
           />
         </svg>
       </button>
-      <button className={`hover:bg-gray-200 rounded-2xl transition-all px-5 py-1 ${isDark?'text-white':'text-black'}`}>
+      <button className={`${isDark?'hover:bg-[#292f3a]':'hover:bg-slate-200'} rounded-2xl transition-all px-5 py-1 ${isDark?'text-white':'text-black'}`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"

@@ -23,7 +23,7 @@ const Settings = ({
       >
         <div className="theme my-2 transition-all hover:bg-black/10 select-none rounded-lg px-3 py-1 flex items-center justify-between">
           <span>Theme</span>
-          <button className={`cursor-pointer ${isDark?'text-white':'text-black'}`} onClick={()=>setIsDark(!isDark)}>
+          <button className={`cursor-pointer ${isDark?'text-white':'text-black'}`} onClick={()=>{setIsDark(!isDark);JSON.stringify(localStorage.setItem('isDark',!isDark))}}>
             {isDark ? (
               <SunIcon className="size-6" title="light theme" />
             ) : (

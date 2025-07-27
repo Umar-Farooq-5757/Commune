@@ -4,11 +4,15 @@ import Header from "./components/Header";
 import ContactOne from "./components/ContactOne";
 import ContactTwo from "./components/ContactTwo";
 import Footer from "./components/Footer";
-import messagesData from "./data/messages.js";
+// import messagesData from "./data/messages.js";
 
 function App() {
-  const [isDark, setIsDark] = useState(true);
-  const [messages, setMessages] = useState(messagesData);
+  const [isDark, setIsDark] = useState(
+    JSON.parse(localStorage.getItem("isDark")) || false
+  );
+  const [messages, setMessages] = useState(
+    JSON.parse(localStorage.getItem("messagesData")) || []
+  );
   const [isSoundEnabled, setIsSoundEnabled] = useState(false);
   return (
     <>

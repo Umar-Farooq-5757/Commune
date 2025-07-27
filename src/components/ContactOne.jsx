@@ -10,12 +10,17 @@ import {
 } from "@heroicons/react/24/outline";
 import { format } from "date-fns";
 import * as Tone from "tone";
-import getTime from "../hooks/useTime.js";
+import updateMessagesData from "../utils/updateMessages.js";
 
 const ContactOne = ({ messages, setMessages, isSoundEnabled,isDark }) => {
   const [messageFromContactOne, setMessageFromContactOne] = useState("");
   const messagesRef = useRef(null);
   const myDate = new Date();
+
+// Updating messages
+useEffect(()=>{
+      updateMessagesData(messages)
+},[messages])
 
   // For notification sound
   const [synth, setSynth] = useState(null);
