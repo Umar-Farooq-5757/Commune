@@ -21,7 +21,7 @@ function App() {
       <main
         className={`py-4 transition-all ${
           isDark ? "bg-[#23272f] yes" : "no"
-        } flex pt-8 md:flex-row flex-col items-center gap-5 md:gap-0 md:justify-around`}
+        } flex pt-8 pb-8 md:flex-row flex-col items-center gap-5 md:gap-0 md:justify-around`}
       >
         <ContactOne
           isSoundEnabled={isSoundEnabled}
@@ -36,7 +36,7 @@ function App() {
           isDark={isDark}
         />
       </main>
-      {/* <Footer/> */}
+      <Footer />
     </>
   );
 }

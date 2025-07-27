@@ -3,6 +3,9 @@
 header {
   box-shadow: 0 7px 1px #dd3700;
 }
+footer {
+  box-shadow: 0 -7px 1px #bd2f00;
+}
 main.no .messages {
   background-color: #e5e5f7;
   opacity: 0.8;
